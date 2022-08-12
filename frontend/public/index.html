@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>AI recognizing</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+      <style >
+          /**
+          global style for TF lib
+           */
+          .pred-incorrect {
+              background-color: #d20505;
+          }
+          .pred {
+              font-size: 10px;
+              line-height: 25px;
+              width: 50px;
+              color: #fff;
+              text-align: center;
+          }
+          .prediction-canvas {
+              width: 50px;
+          }
+          .pred-correct {
+              background-color: #05c705;
+          }
+          .pred-container{
+              width: 55px;
+              display: inline-block;
+          }
+      </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

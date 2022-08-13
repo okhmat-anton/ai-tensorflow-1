@@ -49,16 +49,11 @@ export default {
 		dialogStartTrain: false,
 	}),
 	async mounted(){
-			// console.log('Start load model from server');
-			// this.$tf.loadLayersModel('https://ai.uis-dev.com/model.json').then(
-			// 	res => {
-			// 		this.tfModel=res;
-			// 		console.log('Model uploaded');
-			// 	}
-			// ).catch(() => {
-				this.tfModel=this.tfCreateConvModel();
-				this.tfModel.summary();
-			// });
+      // load model from Firebase - from python export
+    this.overlay = true;
+      this.tfModel = await this.loadModelFromFile();
+      this.tfModel.summary();
+    this.overlay = false;
 	},
 	computed: {
 		...mapGetters([

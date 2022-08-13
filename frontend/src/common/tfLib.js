@@ -43,6 +43,18 @@ export var tfLib={
 		}
 	},
 	methods: {
+		async loadModelFromFile(){
+			// const model = await this.$tf.loadLayersModel('gs://ai-number-recognizer.appspot.com/sequential-1/model.json');
+			const jsonUpload = 'https://firebasestorage.googleapis.com/v0/b/ai-number-recognizer.appspot.com/o/sequential-1%2Fmodel.json?alt=media&token=6bf24362-35b9-429a-b634-12c614fd4459';
+			const weightsUpload = 'https://firebasestorage.googleapis.com/v0/b/ai-number-recognizer.appspot.com/o/sequential-1%2Fgroup1-shard1of1.bin?alt=media&token=e1145708-d5c0-4077-89af-83814c54f9ca';
+
+			const model = await this.$tf.loadLayersModel(jsonUpload,{
+				weightUrlConverter: async (weightFileName) => {
+					return weightsUpload;
+				}
+			});
+			return model;
+		},
 		/**
 		 * function get from https://github.com/tensorflow/tfjs-examples/blob/master/mnist/data.js
 		 * @returns {Promise<void>}

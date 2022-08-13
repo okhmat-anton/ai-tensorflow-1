@@ -65,3 +65,11 @@ export default {
 	}
 };
 </script>
+
+<style scoped>
+@media (max-width: 450px) {
+  .v-toolbar__content div {
+    font-size: 13px !important;
+  }
+}
+</style>

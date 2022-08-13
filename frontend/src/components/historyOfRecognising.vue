@@ -13,41 +13,43 @@
 				<v-toolbar
 					dark
 					color="blue darken-3"
-					class="mb-1"
+					class="mb-1 historyHeader"
 				>
 					<template>
-						<h3>History dataset</h3>
-						<v-spacer></v-spacer>
-						<v-text-field
-							v-model="search"
-							clearable
-							solo-inverted
-							hide-details
-							prepend-inner-icon="mdi-magnify"
-							label="Search numbers real & prediction"
-						></v-text-field>
-						<v-spacer></v-spacer>
-						<v-btn-toggle
-							v-model="sortDesc"
-							mandatory
-						>
-							<v-btn
-								large
-								depressed
-								color="blue"
-								:value="false"
-							>
-								<v-icon>mdi-arrow-up</v-icon>
-							</v-btn>
-							<v-btn
-								large
-								depressed
-								color="blue"
-								:value="true"
-							>
-								<v-icon>mdi-arrow-down</v-icon>
-							</v-btn>
-						</v-btn-toggle>
+            <div class="headerDiv2">
+              <h3 class="historyHeaderH3">History dataset</h3>
+              <v-spacer></v-spacer>
+              <v-text-field
+                v-model="search"
+                clearable
+                solo-inverted
+                hide-details
+                prepend-inner-icon="mdi-magnify"
+                label="Search numbers real & prediction"
+              ></v-text-field>
+              <v-spacer></v-spacer>
+              <v-btn-toggle
+                v-model="sortDesc"
+                mandatory
+              >
+                <v-btn
+                  large
+                  depressed
+                  color="blue"
+                  :value="false"
+                >
+                  <v-icon>mdi-arrow-up</v-icon>
+                </v-btn>
+                <v-btn
+                  large
+                  depressed
+                  color="blue"
+                  :value="true"
+                >
+                  <v-icon>mdi-arrow-down</v-icon>
+                </v-btn>
+              </v-btn-toggle>
+            </div>
 					</template>
 				</v-toolbar>
 			</template>
@@ -126,4 +128,24 @@ export default {
 
 <style scoped>
 
+@media (max-width: 450px) {
+  .historyHeader{
+    display: block !important;
+    height: 148px !important;
+  }
+  .headerDiv2{
+    display: block !important;
+    height: 148px !important;
+    margin-top: 103px;
+  }
+  .historyHeader h3{
+    margin-bottom: 2px;
+  }
+  .v-input{
+    margin-bottom: 5px;
+  }
+  #downPart{
+    margin-top: 7px;
+  }
+}
 </style>

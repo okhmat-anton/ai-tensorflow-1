@@ -2,8 +2,13 @@
   <v-container>
     <v-row>
       <v-col>
-        <canvas id="mainCanvas" :width="canvasHeightWidth" :height="canvasHeightWidth"
+        <canvas id="mainCanvas" class="mainCanvas" :width="canvasHeightWidth" :height="canvasHeightWidth"
                 style="background-color:#eee; border: 1px solid #ccc; margin:10px;"
+
+                v-on:touchstart="mousedown2"
+                v-on:touchend="mouseup2"
+                v-on:touchmoving="mousemove2"
+
                 @mousedown="mousedown"
                 @mousemove="mousemove"
                 @mouseup="mouseup"
@@ -133,6 +138,22 @@ export default {
       this.context.beginPath();
       this.context.moveTo(this.mouse.x, this.mouse.y);
       this.isDraw = true;
+    },
+    mousedown2(e) {
+      console.log('mousedown2');
+      // let element = document.getElementById("bodyID");
+      // element.classList.add("disableScrollOnTouch");
+      this.mousedown(e);
+    },
+    mousemove2(e) {
+      console.log('mousemove2')
+      // let element = document.getElementById("bodyID");
+      // element.classList.remove("disableScrollOnTouch");
+      this.mousemove(e);
+    },
+    mouseup2(e) {
+      console.log('mouseup2')
+      this.mouseup(e);
     },
     mousemove(e) {
       if (this.draw === true) {
@@ -297,5 +318,11 @@ export default {
   width: 28px;
   height: 28px;
   border: 1px solid #000;
+}
+
+@media (max-width: 450px) {
+  .mainCanvas{
+    max-width: 300px !important;
+  }
 }
 </style>

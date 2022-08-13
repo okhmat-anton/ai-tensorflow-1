@@ -17,7 +17,6 @@ import {mutations} from './store/mutations';
 import {getters} from './store/getters';
 import {actions} from './store/actions';
 
-
 Vue.use(Vuex);
 Vue.config.productionTip=false
 
